@@ -1,0 +1,24 @@
+function PlotSolution(tour,model)
+    tour=[tour tour(1)];
+    plot(model.x(tour),model.y(tour),'k-o',...
+    'MarkerSize',2.5,...
+    'MarkerFaceColor','y',...
+    'LineWidth',.5);
+    xlabel('x');
+    ylabel('y');
+    axis equal;
+    grid off;
+    alpha = 0.1;
+    xmin = min(model.x);
+    xmax = max(model.x);
+    dx = xmax - xmin;
+    xmin = floor((xmin - alpha*dx)/10)*10;
+    xmax = ceil((xmax + alpha*dx)/10)*10;
+    xlim([xmin xmax]);
+    ymin = min(model.y);
+    ymax = max(model.y);
+    dy = ymax - ymin;
+    ymin = floor((ymin - alpha*dy)/10)*10;
+    ymax = ceil((ymax + alpha*dy)/10)*10;
+    ylim([ymin ymax]);
+end
